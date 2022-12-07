@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="progress-circle">
+        <span class="number" data-value="100"></span>
+        <svg height="150" width="150" class="circle">
+
+            <circle cx="75" cy="75" r="65"
+            stroke="orange" stroke-width="20"
+            fill="none">
+        </svg>
+    </div>
+    <script>
+        for (let i = 0; i < 500; i++)
+        {
+            const el = document.querySelector(".number");
+            const elvalue = Number( el.getAttribute("data-value"));
+            let counter = 0;
+
+            setInterval(() =>{
+                if (counter !==elvalue)
+                {
+                    counter++;
+                    el.innerHTML = `${counter}%`;
+                }
+                if (counter == 100)
+                {
+                    counter = 0;
+                    el.setAttribute("data-value",0);
+                }
+            },80)
+        }
+    </script>
+    
+</body>
+</html>
